@@ -5,17 +5,115 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:AboutRangeSliderDemo"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:test="clr-namespace:AboutRangeSliderDemo.Controls"
     Title="MainWindow"
     Width="800"
     Height="450"
+    d:DataContext="{d:DesignInstance Type=local:MainWindowViewModel}"
     mc:Ignorable="d">
+    <Window.Resources>
+        <DataTemplate x:Key="ImageTemplate">
+            <Grid Panel.ZIndex="0" Cursor="Arrow">
+                <Image Source="{Binding MediaPath}" Stretch="Fill" />
+                <Border
+                    Height="75"
+                    VerticalAlignment="Bottom"
+                    Background="#53080808">
+                    <TextBlock
+                        Margin="10,0,0,0"
+                        FontSize="30"
+                        Foreground="Red"
+                        Text="{Binding Title}" />
+                </Border>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="VideoTemplate">
+            <Grid Panel.ZIndex="0" Cursor="Arrow">
+                <MediaElement Source="{Binding MediaPath}" Stretch="Fill" />
+                <Border
+                    Height="75"
+                    VerticalAlignment="Bottom"
+                    Background="#53080808">
+                    <TextBlock
+                        Margin="10,0,0,0"
+                        FontSize="30"
+                        Foreground="Red"
+                        Text="{Binding Title}" />
+                </Border>
+            </Grid>
+        </DataTemplate>
+        <local:MediaItemTemplateSelector x:Key="MediaItemTemplateSelector">
+            <local:MediaItemTemplateSelector.ImageTemplate>
+                <DataTemplate>
+                    <Grid Panel.ZIndex="0" Cursor="Arrow">
+                        <Image Source="{Binding MediaPath}" Stretch="Fill" />
+                        <Border
+                            Height="75"
+                            VerticalAlignment="Bottom"
+                            Background="#53080808">
+                            <TextBlock
+                                Margin="10,0,0,0"
+                                FontSize="30"
+                                Foreground="Red"
+                                Text="{Binding Title}" />
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </local:MediaItemTemplateSelector.ImageTemplate>
+            <local:MediaItemTemplateSelector.VideoTemplate>
+                <DataTemplate>
+                    <Grid Panel.ZIndex="0" Cursor="Arrow">
+                        <MediaElement Source="{Binding MediaPath}" Stretch="Fill" />
+                        <Border
+                            Height="75"
+                            VerticalAlignment="Bottom"
+                            Background="#53080808">
+                            <TextBlock
+                                Margin="10,0,0,0"
+                                FontSize="30"
+                                Foreground="Red"
+                                Text="{Binding Title}" />
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </local:MediaItemTemplateSelector.VideoTemplate>
+        </local:MediaItemTemplateSelector>
+    </Window.Resources>
     <Grid>
-        <local:CentreSlider
+        <!--<local:CentreSlider
             Margin="20,0"
             VerticalAlignment="Center"
             Maximum="100"
             Minimum="0"
             Style="{DynamicResource DemoSliderStyle}"
-            Value="50" />
+            Value="50" />-->
+        <test:Carousel
+            AnimationDuration="0:0:0.5"
+            Background="Red"
+            ItemTemplateSelector="{StaticResource MediaItemTemplateSelector}"
+            ItemsSource="{Binding ImageObjects}"
+            SelectedIndex="0">
+            <!--<local1:Carousel.ItemTemplate>
+            -->
+            <!--<DataTemplate>
+                    <Grid Panel.ZIndex="0" Cursor="Arrow">
+                        <Image Source="{Binding ImagePath}" Stretch="Fill" />
+                        <Border
+                            Height="75"
+                            VerticalAlignment="Bottom"
+                            Background="#53080808">
+                            <TextBlock
+                                Margin="10,0,0,0"
+                                FontSize="30"
+                                Foreground="Red"
+                                Text="{Binding Title}" />
+                        </Border>
+                    </Grid>
+                </DataTemplate>-->
+            <!--
+
+            </local1:Carousel.ItemTemplate>-->
+        </test:Carousel>
     </Grid>
 </Window>
