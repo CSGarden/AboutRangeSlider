@@ -71,7 +71,8 @@
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                             Content="{TemplateBinding Content}"
-                            ContentTemplate="{TemplateBinding ContentTemplate}" />
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -124,6 +125,7 @@
                                 Panel.ZIndex="99"
                                 Background="Transparent"
                                 BorderThickness="0"
+                                ItemTemplateSelector="{Binding Path=ItemTemplateSelector, RelativeSource={RelativeSource Mode=TemplatedParent}}"
                                 ItemsSource="{Binding Path=ItemsSource, RelativeSource={RelativeSource Mode=TemplatedParent}}"
                                 SelectedIndex="{Binding Path=SelectedIndex, Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}">
                                 <ListBox.ItemContainerStyle>
@@ -152,7 +154,8 @@
                             Margin="30"
                             HorizontalAlignment="Right"
                             VerticalAlignment="Top"
-                            Content="{TemplateBinding ExtendObject}" />
+                            Content="{TemplateBinding ExtendObject}"
+                            ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

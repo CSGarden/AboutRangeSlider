@@ -8,10 +8,6 @@ using System.Windows.Controls;
 
 namespace AboutRangeSliderDemo {
     public class MediaItemTemplateSelector : DataTemplateSelector {
-        public MediaItemTemplateSelector()
-        {
-            
-        }
         public DataTemplate ImageTemplate { get; set; }
         public DataTemplate VideoTemplate { get; set; }
         public override DataTemplate SelectTemplate(object item, DependencyObject container) {

@@ -23,6 +23,17 @@ namespace AboutRangeSliderDemo {
             DataContext= new MainWindowViewModel();
         }
 
+        private void MediaElement_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) {
+            var mediaElement = sender as MediaElement;
+            if (mediaElement != null) {
+                if ((bool)e.NewValue) {
+                    mediaElement.Play();
+                } else {
+                    mediaElement.Pause();
+                }
+            }       
+        }
+
     }
 
 }
