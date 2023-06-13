@@ -42,7 +42,6 @@
             <Style TargetType="local:RangeSlider">
                 <Setter Property="Template" Value="{StaticResource BasicRangeSliderControlTemplate}" />
             </Style>-->
-           <local:ObjectsToIndexesConverter x:Key="ObjectsToIndexesConverter" />
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Themes/Slider.xaml" />
                 <ResourceDictionary Source="/Themes/Carousel.xaml" />

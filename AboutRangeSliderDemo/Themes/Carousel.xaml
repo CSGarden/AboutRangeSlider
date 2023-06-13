@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:AboutRangeSliderDemo.Controls"
     xmlns:scrollViewer="clr-namespace:AboutRangeSliderDemo">
+    <scrollViewer:ObjectsToIndexesConverter x:Key="ObjectsToIndexesConverter" />
     <Style x:Key="Carousel.RepeatButtonStyle" TargetType="RepeatButton">
         <Setter Property="Width" Value="40" />
         <Setter Property="Height" Value="40" />
@@ -126,7 +127,7 @@
                                 Background="Transparent"
                                 BorderThickness="0"
                                 ItemTemplateSelector="{Binding Path=ItemTemplateSelector, RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                ItemsSource="{Binding Path=ItemsSource, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                ItemsSource="{Binding Path=ItemsSource, Converter={StaticResource ObjectsToIndexesConverter}, RelativeSource={RelativeSource Mode=TemplatedParent}}"
                                 SelectedIndex="{Binding Path=SelectedIndex, Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}">
                                 <ListBox.ItemContainerStyle>
                                     <Style TargetType="ListBoxItem">

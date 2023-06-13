@@ -89,7 +89,7 @@
             Style="{DynamicResource DemoSliderStyle}"
             Value="50" />-->
         <test:Carousel
-            AnimationDuration="0:0:0.5"
+            AnimationDuration="0:0:0.3"
             Background="Red"
             ItemTemplateSelector="{StaticResource MediaItemTemplateSelector}"
             ItemsSource="{Binding ImageObjects}"
