@@ -98,7 +98,7 @@
                                 Grid.Column="0"
                                 Panel.ZIndex="99"
                                 Command="{x:Static local:Carousel.PrevCommand}"
-                                Content="shang"
+                                Content="上"
                                 Style="{StaticResource Carousel.RepeatButtonStyle}" />
                             <ScrollViewer
                                 x:Name="PART_ScrollViewer"
@@ -115,7 +115,7 @@
                                 Grid.Column="2"
                                 Panel.ZIndex="99"
                                 Command="{x:Static local:Carousel.NextCommand}"
-                                Content="xia"
+                                Content="下"
                                 Style="{StaticResource Carousel.RepeatButtonStyle}" />
                             <ListBox
                                 x:Name="PART_IndexListBox"

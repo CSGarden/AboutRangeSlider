@@ -20,20 +20,24 @@ namespace AboutRangeSliderDemo {
     public partial class MainWindow : Window {
         public MainWindow() {
             InitializeComponent();
-            DataContext= new MainWindowViewModel();
+            DataContext = new MainWindowViewModel();
         }
 
-        private void MediaElement_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) {
-            var mediaElement = sender as MediaElement;
-            if (mediaElement != null) {
-                if ((bool)e.NewValue) {
-                    mediaElement.Play();
-                } else {
-                    mediaElement.Pause();
-                }
-            }       
+
+        private void MediaElement_MediaOpened(object sender, RoutedEventArgs e) {
+            MediaElement media = sender as MediaElement;
+            if (media != null) {
+                media.Pause();
+            }
+
         }
 
+        private void MediaElement_MediaEnded(object sender, RoutedEventArgs e) {
+            MediaElement media = sender as MediaElement;
+            if (media != null) {
+                media.Stop();
+            }
+        }
     }
 
 }
